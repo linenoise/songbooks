@@ -15,7 +15,7 @@ print SOURCE <<__END_LATEX_HEADER__
 \\usepackage[letterpaper,top=0.5in, bottom=0.5in, left=1in, right=0.5in]{geometry}
 \\usepackage[chorded]{songs}
 \\usepackage[utf8x]{inputenc}
-\\usepackage[T2A]{fontenc}
+\\usepackage[T1]{fontenc}
 
 \\definecolor{lightgray}{RGB}{150,150,150}
 \\noversenumbers
