@@ -6,10 +6,10 @@ A book of songs for singing from.
 This is not my beautiful house!
 -------------------------------
 
-Do you want to add a song? Copy any of the .tex files under `Party Songs` and edit to your liking. The structure of each song is as follows:
+Do you want to add a song? Copy any of the .tex files under `Songs` and edit to your liking. Don't use unicode in your file names. The structure of each song is as follows:
 
 * `\beginsong` begins each song, followed by `{Author - Song Name}`. If it's a cover, add `[by={As performed by whoever}]` to the end.
-* `\gtab{Chord name}{Chord fingering}` tells LaTeX how to build those pretty chord charts. Repeat as needed.
+* `\gtab{Chord name}{Chord fingering}` tells LaTeX how to build those pretty chord charts. Repeat as needed. Make sure you use uppercase Xs where you don't want a string to be played. Lowercase xs tell the typesetter that there isn't a string there so don't print a string.
 * `\beginverse` and `\endverse` begin and end verses. Don't put any text outside of those markers.
 * `\beginchorus` and `\endchorus` do the same, but with the chorus. It puts a bold black line next to the words so people know to come back to that part of the song later rather than singing the word "Chorus".
 * `\[A]` puts the guitar chord 'A' above the word you place it next to. Same for F#minDim7.
@@ -20,7 +20,7 @@ Do you want to add a song? Copy any of the .tex files under `Party Songs` and ed
 This is not my beautiful wife!
 ------------------------------
 
-Do you want your own song book? Create a file in the base directory based off the structure of `Party Songs.tex`. You probably don't want to change anything other than the includes here. Be sure to remove ".tex" from the end of your include file names.
+Do you want your own song book? Create a file in the base directory based off the structure of `Songs.tex`. You probably don't want to change anything other than the includes here. Be sure to remove ".tex" from the end of your include file names.
 
 Same as in the song files, any line starting with '%' is just a comment and will not be typeset in the final file.
 
@@ -39,6 +39,22 @@ How do I work this?
 
 5. Compile the PDF from source.
 
-	`$ texi2pdf Party\ Songs.tex`
+	`$ texi2pdf Songs.tex`
+
+6. MOOP sweep! This is a Leave No Trace songbook build procedure.
+
+	`$ rm *.aux *.log *.out *.sxc *.toc; rm Songs/*.aux Songs/*.log Songs/*.sxc`
 
 6. Print and bind the book, then sing from the book of songs for singing from.
+
+Same as it ever was
+-------------------
+
+This REPLy bit is here so you can copy and paste it while formatting your songs:
+
+	`rm *.aux *.log *.out *.sxc *.toc; texi2pdf Songs.tex && open Songs.pdf`
+
+Same as it ever was
+-------------------
+
+Need help? Contact Danne Stayskal <danne@stayskal.com>.
