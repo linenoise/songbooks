@@ -6,7 +6,9 @@ A book of songs for singing from.
 This is not my beautiful house!
 -------------------------------
 
-Do you want to add a song? Copy any of the .tex files under `Songs` and edit to your liking. Don't use unicode in your file names. The structure of each song is as follows:
+Do you want to add a song? 
+
+Copy any of the .tex files under `Songs` and edit to your liking. Don't use unicode in your file names. The structure of each song is as follows:
 
 * `\beginsong` begins each song, followed by `{Author - Song Name}`. If it's a cover, add `[by={As performed by whoever}]` to the end.
 * `\gtab{Chord name}{Chord fingering}` tells LaTeX how to build those pretty chord charts. Repeat as needed. Make sure you use uppercase Xs where you don't want a string to be played. Lowercase xs tell the typesetter that there isn't a string there so don't print a string.
@@ -20,7 +22,9 @@ Do you want to add a song? Copy any of the .tex files under `Songs` and edit to 
 This is not my beautiful wife!
 ------------------------------
 
-Do you want your own song book? Create a file in the base directory based off the structure of `Songs.tex`. You probably don't want to change anything other than the includes here. Be sure to remove ".tex" from the end of your include file names.
+Do you want your own song book? 
+
+Create a file in the base directory based off the structure of `Songs.tex`. You probably don't want to change anything other than the includes here. Be sure to remove ".tex" from the end of your include file names. Oh, and you remembered not to use unicode in your song file names, right?
 
 Same as in the song files, any line starting with '%' is just a comment and will not be typeset in the final file.
 
