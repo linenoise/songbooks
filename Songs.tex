@@ -1,126 +1,198 @@
 \documentclass{article}
 \usepackage[letterpaper,top=0.5in, bottom=0.5in, left=1in, right=0.5in]{geometry}
 \usepackage[chorded]{songs}
+\usepackage[bookmarks]{hyperref}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{etoolbox}
 
 \definecolor{lightgray}{RGB}{150,150,150}
 \noversenumbers
 \MultiwordChords
 \songcolumns{2}
 \renewcommand{\printchord}[1]{\rmfamily\small\color{lightgray}\bf#1}
-\newindex{titleidx}{titleidx}
+
+\newindex{titleidx}{lbtitle}
+
+\makeatletter
+\renewcommand\beginsong[1]{%
+  \ifSB@insong\SB@errboo\SB@closeall\fi%
+  \ifSB@intersong\SB@errbor\SB@closeall\fi%
+  \SB@insongtrue%
+  \def\SB@closeall{\endsong}%
+  \SB@parsetitles{#1}%
+  \global\setbox\SB@songwrites\box\voidb@x%
+  \SB@clearbskeys%
+  \@ifnextchar[\SB@bskvfmt\SB@@beginsong%
+  \hypersetup{bookmarksdepth=0}%
+  \phantomsection%
+  \addcontentsline{toc}{subsection}{\numberline{\thesongnum}#1}%
+  \hypersetup{bookmarksdepth=2}%
+}
+\makeatother
+
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textwidth}{6.5in}
+\setlength{\topmargin}{0in}
+\setlength{\topskip}{0in}
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in}
+\setlength{\textheight}{9.1in}
+\settowidth{\versenumwidth}{1.\ }
+
+
+
 \begin{document}
 \setlength{\parindent}{0pt}
+
+\thispagestyle{empty}
+\begin{center}
+\begin{minipage}{0.75\linewidth}
+    \centering
+    \vspace{3cm}
+
+    \rule{0.8\linewidth}{0.01\linewidth}\par
+    \vspace{2cm}
+
+    {\uppercase{\Large The book of songs for singing from\par}}
+    {\uppercase{DRAFT Version 2016-08-05-A}}
+
+    \vspace{2cm}
+    \rule{0.8\linewidth}{0.01\linewidth}\par
+
+    \vspace{3cm}
+
+    {\Large Tautology Arts Collective\par}
+    {\Large Black Rock City, Nevada\par}
+    \vspace{3cm}
+
+    \includegraphics[width=0.3\linewidth]{tautology.png}
+
+\end{minipage}
+\end{center}
+\clearpage
+
+
+\tableofcontents
+\clearpage
+
+
 \begin{songs}{}
 
-\include{{"/Party Songs/Arlo Guthrie - Alice's Restaurant"}}
-% \include{{"/Party Songs/Belle and Sebasian - The State I Am In"}}
-% \include{{"./Party Songs/Ben E. King - Stand by Me"}}
-% \include{{"./Party Songs/Billy Joel - Piano Man"}}
-% \include{{"./Party Songs/Björk - Vökuró"}}
-% \include{{"./Party Songs/Bob Dylan - The Times They Are A-changin"}}
-% \include{{"./Party Songs/Buddy Holly - That'll be the Day"}}
-% \include{{"./Party Songs/Carla Bruni - Quelqu'un m'a dit"}}
-% \include{{"./Party Songs/Chris Isaac - Wicked Game"}}
-% \include{{"./Party Songs/Credance Clearwarer Revival - Have You Ever Seen the Rain"}}
-% \include{{"./Party Songs/Darius Rucker - Wagon Wheel"}}
-% \include{{"./Party Songs/David Bowie - Ground Control to Major Tom"}}
-% \include{{"./Party Songs/David Bowie - The Man Who Sold the World"}}
-% \include{{"./Party Songs/Death Cab for Cutie - I Will Follow You In to the Dark"}}
-% \include{{"./Party Songs/Depeche Mode - Personal Jesus"}}
-% \include{{"./Party Songs/Devendra Banhart - Lazy Butterfly"}}
-% \include{{"./Party Songs/Don Mclean - American Pie"}}
-% \include{{"./Party Songs/Edward Sharpe and the Magnetic Zeros - Home"}}
-% \include{{"./Party Songs/Elton John - Daniel"}}
-% \include{{"./Party Songs/Elvis Costello - Radio Radio"}}
-% \include{{"./Party Songs/Eric Clapton - Tears in Heaven"}}
-% \include{{"./Party Songs/Eric Clapton - Wonderful Tonight"}}
-% \include{{"./Party Songs/Everly Brothers - Dream"}}
-% \include{{"./Party Songs/Flogging Molly - If I Ever Leave This World Alive"}}
-% \include{{"./Party Songs/Garth Brooks - The Dance"}}
-% \include{{"./Party Songs/Iron & Wine - Such Great Heights"}}
-% \include{{"./Party Songs/Jiuseppi Verdi - Va, Pensiero"}}
-% \include{{"./Party Songs/Johnny Cash - Folsom Prison Blues"}}
-% \include{{"./Party Songs/Jonathan Coulton - Mandelbrot Set"}}
-% \include{{"./Party Songs/Jonathan Coulton - Still Alive"}}
-% \include{{"./Party Songs/June Carter - Ring of Fire"}}
-% \include{{"./Party Songs/Lady Gaga - Bad Romance"}}
-% \include{{"./Party Songs/Lady Gaga - Paper Gangsta"}}
-% \include{{"./Party Songs/Leonard Cohen - Hallelujah"}}
-% \include{{"./Party Songs/LMFAO - Sexy and I know it"}}
-% \include{{"./Party Songs/Lorde - Royals"}}
-% \include{{"./Party Songs/Louie Armstrong - What a Wonderful World"}}
-% \include{{"./Party Songs/Madness - Our House"}}
-% \include{{"./Party Songs/Mary Poppins - Chim Chim Cheree"}}
-% \include{{"./Party Songs/Michael Jackson - Billie Jean"}}
-% \include{{"./Party Songs/Monty Python - Always Look on the Bright Side of Life"}}
-% \include{{"./Party Songs/Monty Python - The Galaxy Song"}}
-% \include{{"./Party Songs/Muppets - The Rainbow Connection"}}
-% \include{{"./Party Songs/Nena - 99 Luftballons"}}
-% \include{{"./Party Songs/New Order - Blue Monday"}}
-% \include{{"./Party Songs/Nirvana - About a Girl"}}
-% \include{{"./Party Songs/Nixons - Sister"}}
-% \include{{"./Party Songs/Norah Jones - Don't Know Why"}}
-% \include{{"./Party Songs/Oasis - Wonderwall"}}
-% \include{{"./Party Songs/Otis Redding - Sittin' at the Dock of the Bay"}}
-% \include{{"./Party Songs/Outkast - Hey, Ya"}}
-% \include{{"./Party Songs/Patsy Cline - Crazy"}}
-% \include{{"./Party Songs/Paul Simon - 50 Ways to Leave your Lover"}}
-% \include{{"./Party Songs/Pixies - Here Comes Your Man"}}
-% \include{{"./Party Songs/Pixies - Wave of Mutilation"}}
-% \include{{"./Party Songs/Queen - Bohemian Rhapsody"}}
-% \include{{"./Party Songs/Queen - Crazy Little Thing Called Love"}}
-% \include{{"./Party Songs/R.E.M. - Half a World Away"}}
-% \include{{"./Party Songs/R.E.M. - It's The End of the World as we Know It"}}
-% \include{{"./Party Songs/R.E.M. - Losing My Religion"}}
-% \include{{"./Party Songs/R.E.M. - Swan Swan H"}}
-% \include{{"./Party Songs/R.E.M. - You Are The Everything"}}
-% \include{{"./Party Songs/Radiohead - Creep"}}
-% \include{{"./Party Songs/Radiohead - Fake Plastic Trees"}}
-% \include{{"./Party Songs/Radiohead - Karma Police"}}
-% \include{{"./Party Songs/Radiohead - Lucky"}}
-% \include{{"./Party Songs/Radiohead - Pyramid Song"}}
-% \include{{"./Party Songs/Ritchie Valens - La Bamba"}}
-% \include{{"./Party Songs/Robert Earl Keen - No Kinda Dancer"}}
-% \include{{"./Party Songs/Sigur Rós - Starálfur"}}
-% \include{{"./Party Songs/Simon and Garfunkel - America"}}
-% \include{{"./Party Songs/Simon and Garfunkel - Bridge over Troubled Water"}}
-% \include{{"./Party Songs/Simon and Garfunkel - Homeward Bound"}}
-% \include{{"./Party Songs/Simon and Garfunkel - Mrs. Robinson"}}
-% \include{{"./Party Songs/Simon and Garfunkel - Sound of Silence"}}
-% \include{{"./Party Songs/Stereolab - Peng! 33"}}
-% \include{{"./Party Songs/Sublime - Santeria"}}
-% \include{{"./Party Songs/Talking Heads - Once in a Lifetime"}}
-% \include{{"./Party Songs/Talking Heads - Road to Nowhere"}}
-% \include{{"./Party Songs/The Band - The Weight"}}
-% \include{{"./Party Songs/The Beatles - In My Life"}}
-% \include{{"./Party Songs/The Beatles - Let It Be"}}
-% \include{{"./Party Songs/The Beatles - Love Me Do"}}
-% \include{{"./Party Songs/The Beatles - Rocky Raccoon"}}
-% \include{{"./Party Songs/The Cure - Friday, I'm In Love"}}
-% \include{{"./Party Songs/The Decemberists - A Cautionary Song"}}
-% \include{{"./Party Songs/The Decemberists - The Legionnaire's Lament"}}
-% \include{{"./Party Songs/The Eagles - Desperado"}}
-% \include{{"./Party Songs/The Eagles - Hotel California"}}
-% \include{{"./Party Songs/The Faces - Ooh La La"}}
-% \include{{"./Party Songs/The Flaming Lips - Yoshimi battles The Pink Robots"}}
-% \include{{"./Party Songs/The Mountain Goats - No Children"}}
-% \include{{"./Party Songs/The Rolling Stones - Beast of Burden"}}
-% \include{{"./Party Songs/The Rolling Stones - Dead Flowers"}}
-% \include{{"./Party Songs/The Shins - New Slang"}}
-% \include{{"./Party Songs/They Might Be Giants - Birdhouse In Your Soul"}}
-% \include{{"./Party Songs/Tom Waits - Chocolate Jesus"}}
-% \include{{"./Party Songs/Traditional - Happy Trails"}}
-% \include{{"./Party Songs/Traditional - Hava Nagila"}}
-% \include{{"./Party Songs/Traditional - Mival Guriashi"}}
-% \include{{"./Party Songs/Traditional - The Internationale"}}
-% \include{{"./Party Songs/Traditional - Wayfaring Stranger"}}
-% \include{{"./Party Songs/Van Morrison - Brown Eyed Girl"}} "}}
-% \include{{"./Party Songs/Velvet Underground - After Hours"}}
-% \include{{"./Party Songs/Wilco - I Am Trying to Break Your Heart"}}
-% \include{{"./Party Songs/Wilco - Sky Blue Sky"}}
-% \include{{"./Party Songs/Woody Guthrie - This Land is Your Land"}}
+\include{{"Songs/Arlo Guthrie - Alice's Restaurant"}}
+\include{{"Songs/Barefoot Truth - I Prefer"}}
+\include{{"Songs/Belle and Sebastian - The State I Am In"}}
+\include{{"Songs/Ben E. King - Stand by Me"}}
+\include{{"Songs/Billy Joel - Piano Man"}}
+\include{{"Songs/Bjork - Vokuro"}}
+\include{{"Songs/Bob Dylan - The Times They Are A-changin"}}
+\include{{"Songs/Bob Marley - Redemption Song"}}
+\include{{"Songs/Buddy Holly - That'll be the Day"}}
+\include{{"Songs/Chris Isaac - Wicked Game"}}
+\include{{"Songs/Credance Clearwarer Revival - Have You Ever Seen the Rain"}}
+\include{{"Songs/Darius Rucker - Wagon Wheel"}}
+\include{{"Songs/David Bowie - Ground Control to Major Tom"}}
+\include{{"Songs/David Bowie - The Man Who Sold the World"}}
+\include{{"Songs/Depeche Mode - Personal Jesus"}}
+\include{{"Songs/Devendra Banhart - Lazy Butterfly"}}
+\include{{"Songs/Don Mclean - American Pie"}}
+\include{{"Songs/Edward Sharpe and the Magnetic Zeros - Home"}}
+\include{{"Songs/Elvis Costello - Radio Radio"}}
+\include{{"Songs/Eric Clapton - Tears in Heaven"}}
+\include{{"Songs/Eric Clapton - Wonderful Tonight"}}
+\include{{"Songs/Everly Brothers - Dream"}}
+\include{{"Songs/Flogging Molly - If I Ever Leave This World Alive"}}
+\include{{"Songs/Iron & Wine - Such Great Heights"}}
+\include{{"Songs/Jack Johnson - Gone"}}
+\include{{"Songs/John Lennon - Imagine"}}
+\include{{"Songs/Johnny Cash - Folsom Prison Blues"}}
+\include{{"Songs/Jonathan Coulton - Mandelbrot Set"}}
+\include{{"Songs/Jonathan Coulton - Still Alive"}}
+\include{{"Songs/June Carter - Ring of Fire"}}
+\include{{"Songs/Leonard Cohen - Hallelujah"}}
+\include{{"Songs/LMFAO - Sexy and I know it"}}
+\include{{"Songs/Lorde - Royals"}}
+\include{{"Songs/Louie Armstrong - What a Wonderful World"}}
+\include{{"Songs/Madness - Our House"}}
+\include{{"Songs/Mary Poppins - Chim Chim Cheree"}}
+\include{{"Songs/Monty Python - Always Look on the Bright Side of Life"}}
+\include{{"Songs/Monty Python - The Galaxy Song"}}
+\include{{"Songs/Muppets - The Rainbow Connection"}}
+\include{{"Songs/Nena - 99 Luftballons"}}
+\include{{"Songs/New Order - Blue Monday"}}
+\include{{"Songs/Nirvana - About a Girl"}}
+\include{{"Songs/Norah Jones - Don't Know Why"}}
+\include{{"Songs/Oasis - Wonderwall"}}
+\include{{"Songs/Otis Redding - Sittin' at the Dock of the Bay"}}
+\include{{"Songs/Outkast - Hey, Ya"}}
+\include{{"Songs/Patsy Cline - Crazy"}}
+\include{{"Songs/Paul Simon - 50 Ways to Leave your Lover"}}
+\include{{"Songs/Pixies - Here Comes Your Man"}}
+\include{{"Songs/Pixies - Wave of Mutilation"}}
+\include{{"Songs/Queen - Bohemian Rhapsody"}}
+\include{{"Songs/Queen - Crazy Little Thing Called Love"}}
+\include{{"Songs/R.E.M. - Half a World Away"}}
+\include{{"Songs/R.E.M. - I Believe"}}
+\include{{"Songs/R.E.M. - It's The End of the World as we Know It"}}
+\include{{"Songs/R.E.M. - Losing My Religion"}}
+\include{{"Songs/R.E.M. - Swan Swan H"}}
+\include{{"Songs/R.E.M. - You Are The Everything"}}
+\include{{"Songs/Radiohead - Fake Plastic Trees"}}
+\include{{"Songs/Radiohead - Karma Police"}}
+\include{{"Songs/Radiohead - Lucky"}}
+\include{{"Songs/Radiohead - Pyramid Song"}}
+\include{{"Songs/Ritchie Valens - La Bamba"}}
+\include{{"Songs/Robert Earl Keen - No Kinda Dancer"}}
+\include{{"Songs/Sigur Ros - Staralfur"}}
+\include{{"Songs/Sigur Ros - Vithrar vel til Loftharasa"}}
+\include{{"Songs/Simon and Garfunkel - America"}}
+\include{{"Songs/Simon and Garfunkel - Bridge over Troubled Water"}}
+\include{{"Songs/Simon and Garfunkel - Homeward Bound"}}
+\include{{"Songs/Simon and Garfunkel - Mrs. Robinson"}}
+\include{{"Songs/Simon and Garfunkel - Sound of Silence"}}
+\include{{"Songs/Stereolab - Peng! 33"}}
+\include{{"Songs/Sublime - Santeria"}}
+\include{{"Songs/Talking Heads - Once in a Lifetime"}}
+\include{{"Songs/Talking Heads - Road to Nowhere"}}
+\include{{"Songs/The Band - The Weight"}}
+\include{{"Songs/The Beatles - In My Life"}}
+\include{{"Songs/The Beatles - Let It Be"}}
+\include{{"Songs/The Beatles - Love Me Do"}}
+\include{{"Songs/The Beatles - Rocky Raccoon"}}
+\include{{"Songs/The Beatles - With A Little Help From My Friends"}}
+\include{{"Songs/The Cure - Friday, I'm In Love"}}
+\include{{"Songs/The Decemberists - A Cautionary Song"}}
+\include{{"Songs/The Decemberists - The Legionnaire's Lament"}}
+\include{{"Songs/The Eagles - Desperado"}}
+\include{{"Songs/The Eagles - Hotel California"}}
+\include{{"Songs/The Faces - Ooh La La"}}
+\include{{"Songs/The Flaming Lips - Yoshimi battles The Pink Robots"}}
+\include{{"Songs/The Mountain Goats - No Children"}}
+\include{{"Songs/The Rolling Stones - Beast of Burden"}}
+\include{{"Songs/The Rolling Stones - Dead Flowers"}}
+\include{{"Songs/The Shins - New Slang"}}
+\include{{"Songs/They Might Be Giants - Birdhouse In Your Soul"}}
+\include{{"Songs/TLC - Waterfalls"}}
+\include{{"Songs/Tom Petty And The Heartbreakers - Free Fallin"}}
+\include{{"Songs/Tom Waits - Chocolate Jesus"}}
+\include{{"Songs/Traditional - Amazing Grace"}}
+\include{{"Songs/Traditional - Happy Trails"}}
+\include{{"Songs/Traditional - Hava Nagila"}}
+\include{{"Songs/Traditional - Mival Guriashi"}}
+\include{{"Songs/Traditional - The Internationale"}}
+\include{{"Songs/Traditional - Wayfaring Stranger"}}
+\include{{"Songs/U2 - One Love"}}
+\include{{"Songs/U2 - Ordinary Love"}}
+\include{{"Songs/Van Morrison - Brown Eyed Girl"}}
+\include{{"Songs/Velvet Underground - After Hours"}}
+\include{{"Songs/Wilco - I Am Trying to Break Your Heart"}}
+\include{{"Songs/Wilco - Sky Blue Sky"}}
+\include{{"Songs/White Stripes - A Martyr for My Love to You"}}
+\include{{"Songs/Woody Guthrie - This Land is Your Land"}}
+\include{{"Songs/Xavier Rudd - Better People"}}
 
 \end{songs}
+
 \end{document}
