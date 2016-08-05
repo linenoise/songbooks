@@ -3,3 +3,5 @@
 *.sxc
 *.gz
 *.sxd
+*.out
+*.toc
