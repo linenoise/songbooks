@@ -19,6 +19,12 @@ Copy any of the .tex files under `Songs` and edit to your liking. Don't use unic
 * Any line beginning with a '%' will not be typeset into the final file. It's a comment.
 * `\endsong` ends each song.
 
+Once you have a file under the `Songs/` directory in the format of `Artist - Title.tex`, then you'll want to add a line that looks like this to the correct place in `Songs.tex`:
+
+	`\include{{"Songs/Artist - Title"}}`
+
+At this point, either commit your changes or send a pull request. If you want to compile a new version of the PDF, don't forget to bump the version number on the title page. Or just email Danne and ask her to do it. That works, too.
+
 This is not my beautiful wife!
 ------------------------------
 
