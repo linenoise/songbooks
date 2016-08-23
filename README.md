@@ -3,10 +3,8 @@ Songbook
 
 A book of songs for singing from.
 
-This is not my beautiful house!
--------------------------------
-
-Do you want to add a song? 
+Do you want to add a song?
+--------------------------
 
 Copy any of the .tex files under `Songs` and edit to your liking. Don't use unicode in your file names. The structure of each song is as follows:
 
@@ -25,17 +23,19 @@ Once you have a file under the `Songs/` directory in the format of `Artist - Tit
 
 At this point, either commit your changes or send a pull request. If you want to compile a new version of the PDF, don't forget to bump the version number on the title page. Or just email Danne and ask her to do it. That works, too.
 
-This is not my beautiful wife!
-------------------------------
+This REPLy bit is here so you can copy and paste it while formatting your songs:
 
-Do you want your own song book? 
+	`rm *.aux *.log *.out *.sxc *.toc; texi2pdf Songs.tex && open Songs.pdf`
+
+Do you want your own song book?
+-------------------------------
 
 Create a file in the base directory based off the structure of `Songs.tex`. You probably don't want to change anything other than the includes here. Be sure to remove ".tex" from the end of your include file names. Oh, and you remembered not to use unicode in your song file names, right?
 
 Same as in the song files, any line starting with '%' is just a comment and will not be typeset in the final file.
 
-How do I work this?
--------------------
+Do you want to compile a PDF yourself?
+--------------------------------------
 
 1. Have [LaTeX](http://www.latex-project.org/get/) installed. On Linux, your package manager has this. On OSX, use [BasicTeX](https://www.tug.org/mactex/morepackages.html). On windows, use [MiKTeX](http://miktex.org/).
 2. Open your terminal or shell.
@@ -57,14 +57,9 @@ How do I work this?
 
 6. Print and bind the book, then sing from the book of songs for singing from.
 
-Same as it ever was
--------------------
+Need help?
+----------
 
-This REPLy bit is here so you can copy and paste it while formatting your songs:
+Contact Danne Stayskal <danne@stayskal.com>; she's the maintainer of this songbook.
 
-	`rm *.aux *.log *.out *.sxc *.toc; texi2pdf Songs.tex && open Songs.pdf`
-
-Same as it ever was
--------------------
-
-Need help? Contact Danne Stayskal <danne@stayskal.com>.
+Thanks to Rosangela Canino-Koning for inspiration, layout, and library assistance!
